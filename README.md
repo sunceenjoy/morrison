@@ -69,7 +69,7 @@ include        fastcgi_params;
 fastcgi_read_timeout 600;
 }
 ```
-2. copy project to local server
+2.Copy the code to local server
 ```
 $ git clone https://github.com/sunceenjoy/morrison
 # enter into project dir
