@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Vote Page </title>
+        <meta name="Description" content="">
+        <link rel="stylesheet" href="/css/site.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    </head>
+
+    <body>
+        <header>
+            <h1>Vote for our new sticker</h1>
+            <p>We need your help to choose<br> our next sticker. Add your vote today:</p>
+        </header>
+        <div class="main">
+            <form action="/vote/post" method="post">
+                <p>Enter email address:</p>
+                <div><input type="text" id="email_address" autocomplete="false" spellcheck="false" name="email_address"></div>
+                <hr>
+                <p>Which stcker woud you like?</p>
+                <ul class="vote-list">
+                    <li><img src="/images/vote/love.png"/></li>
+                    <li><img src="/images/vote/do_good.png"/></li>
+                    <li><img src="/images/vote/unite.png"/></li>
+                    <li><img src="/images/vote/rise.png"/></li>
+                </ul>
+                <input type="hidden" name="sticker" id="sticker"/>
+                <button type="submit" class="vote">vote</button>
+            </form>
+            
+            {# Use the flash messages from the session, these are not escaped! #}
+            {# Any user input displayed in flash messages must be escaped. #}
+            {% if session.flashbag.has('success') %}
+                <div class="flash-success">
+                    {{ session.flashbag.get('success')|join('<br>')|raw }}
+                </div>
+            {% endif %}
+            {% if session.flashbag.has('warning') %}
+                <div class="flash-warning">
+                    {{ session.flashbag.get('warning')|join('<br>')|raw }}
+                </div>
+            {% endif %}
+        </div>
+        <footer>
+            <ul class="outer">
+                <li class="left"><img src="/images/logo_retina.jpg"/></li>
+                <li class="right">
+                    <ul class="inner">
+                        <li>copyright @</li>
+                        <li>2017</li>
+                        <li>morrison</li>
+                        <li>agency. all</li>
+                        <li>rights</li>
+                        <li>reserved.</li>
+                    </ul>
+                </li>
+            </ul>
+        </footer>
+    </body>
+</html>
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<script>
+    $('.vote-list li').click(function () {
+        $(this).siblings().removeClass('selected');
+        $(this).addClass('selected');
+        $('#sticker').val($('.vote-list li').index(this) + 1);
+    })
+</script>

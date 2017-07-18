@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<ruleset name="Morrison">
+ <description>coding standard.</description>
+
+ <exclude-pattern>res/cache/*</exclude-pattern>
+ <exclude-pattern>*/vendor/*</exclude-pattern>
+ <exclude-pattern>*/Tests/*</exclude-pattern>
+ <exclude-pattern>web/*</exclude-pattern>
+ <exclude-pattern>*.js</exclude-pattern>
+ <exclude-pattern>*.ico</exclude-pattern>
+ <exclude-pattern>*.css</exclude-pattern>
+ <exclude-pattern>*.twig</exclude-pattern>
+
+ <!-- Include the whole PSR-2 standard -->
+ <rule ref="PSR2"/>
+
+ <!-- Include some sniffs from other standards that don't conflict with PSR2 -->
+ <rule ref="Squiz.Commenting.DocCommentAlignment" />
+</ruleset>
