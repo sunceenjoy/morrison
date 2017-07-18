@@ -64,6 +64,7 @@ class EmailSenderCommand extends BaseCommand
                     echo $message->toString(),"\n";
                 } else {
                     $this->mailer->send($message);
+                    $this->logger->info('Email Sent', ['address' => $emailEntity->getEmailAddress()]);
                 }
             }
             if (count($emails) == 0) {
