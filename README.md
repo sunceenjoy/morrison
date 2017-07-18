@@ -4,13 +4,13 @@ This vote page is based on PHP Symfony2 Framework, uses Mysql as the database st
   - ***app/config***: config files dir.
   - ***app/resources***: services, routings or other php related resources 
   - ***app/src***: main source files
-  - ***bin/***: command entry file
-  - ***database-migration/***: database migration
-  - ***res/cache/***: cache dir
-  - ***res/logs/***: logs dir
-  - ***res/styles/***: SCSS files dir
-  - ***res/template/***: twig template files dir
-  - ***webroot/***: web root dir
+  - ***bin***: command entry file
+  - ***database-migration***: database migration
+  - ***res/cache***: cache dir
+  - ***res/logs***: logs dir
+  - ***res/styles***: SCSS files dir
+  - ***res/template***: twig template files dir
+  - ***webroot***: web root dir
 
 # Implementation
 In order to handle lots of requests without bogging down or keeping website users waiting. From ***coding perspective***, We need to remove the time consuming parts: 
@@ -69,32 +69,35 @@ include        fastcgi_params;
 fastcgi_read_timeout 600;
 }
 ```
-2.Import migration.sql into database
+2.Copy the code to local server
+```
+$ git clone https://github.com/sunceenjoy/morrison
+# Enter into project dir
+$ cd morrison
+```
+
+3.Import migration.sql into database
 ```sh
-$ cd /projectdir
+# Change username to your db username
 $ mysql -u username -p < ./database-migration/migration.sql
 ```
-3.Config databse, redis
+4.Config databse, redis
 ```sh
-$ cd /projectdir
 $ vim ./app/config/prod/app.ini
 ```
-4.Set up cache, logs privileges
+5.Set up cache, logs privileges
 ```sh
-$ cd /projectdir
 $ mkdir -m 777 ./res/cache
 $ mkdir -m 777 ./res/logs
 ```
 
-5.Install php dependences.
+6.Install php dependences.
 ```sh
-$ cd /projectdir
 $ composer install
 ```
 Now, we are all set. 
 To send emails, we need to run another command:
 ```sh
-$ cd /projectdir
 $  MORRISON_ENV=morrison_prod php bin/console.php cron:send-email
 /**
    dry run: MORRISON_ENV=morrison_prod php bin/console.php cron:send-email --dry-run
@@ -103,6 +106,5 @@ $  MORRISON_ENV=morrison_prod php bin/console.php cron:send-email
 
 Run unit test:
 ```sh
-$ cd /projectdir
 $  phpunit -c phpunit.xml.dist
 ```
