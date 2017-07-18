@@ -72,12 +72,13 @@ fastcgi_read_timeout 600;
 2.Copy the code to local server
 ```
 $ git clone https://github.com/sunceenjoy/morrison
-# enter into project dir
+# Enter into project dir
 $ cd morrison
 ```
 
 3.Import migration.sql into database
 ```sh
+# Change username to your db username
 $ mysql -u username -p < ./database-migration/migration.sql
 ```
 4.Config databse, redis
