@@ -69,32 +69,34 @@ include        fastcgi_params;
 fastcgi_read_timeout 600;
 }
 ```
-2.Import migration.sql into database
+2. copy project to local server
+```
+$ git clone https://github.com/sunceenjoy/morrison
+# enter into project dir
+$ cd morrison
+```
+
+3.Import migration.sql into database
 ```sh
-$ cd /projectdir
 $ mysql -u username -p < ./database-migration/migration.sql
 ```
-3.Config databse, redis
+4.Config databse, redis
 ```sh
-$ cd /projectdir
 $ vim ./app/config/prod/app.ini
 ```
-4.Set up cache, logs privileges
+5.Set up cache, logs privileges
 ```sh
-$ cd /projectdir
 $ mkdir -m 777 ./res/cache
 $ mkdir -m 777 ./res/logs
 ```
 
-5.Install php dependences.
+6.Install php dependences.
 ```sh
-$ cd /projectdir
 $ composer install
 ```
 Now, we are all set. 
 To send emails, we need to run another command:
 ```sh
-$ cd /projectdir
 $  MORRISON_ENV=morrison_prod php bin/console.php cron:send-email
 /**
    dry run: MORRISON_ENV=morrison_prod php bin/console.php cron:send-email --dry-run
@@ -103,6 +105,5 @@ $  MORRISON_ENV=morrison_prod php bin/console.php cron:send-email
 
 Run unit test:
 ```sh
-$ cd /projectdir
 $  phpunit -c phpunit.xml.dist
 ```
