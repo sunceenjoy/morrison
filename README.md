@@ -4,13 +4,13 @@ This vote page is based on PHP Symfony2 Framework, uses Mysql as the database st
   - ***app/config***: config files dir.
   - ***app/resources***: services, routings or other php related resources 
   - ***app/src***: main source files
-  - ***bin/***: command entry file
-  - ***database-migration/***: database migration
-  - ***res/cache/***: cache dir
-  - ***res/logs/***: logs dir
-  - ***res/styles/***: SCSS files dir
-  - ***res/template/***: twig template files dir
-  - ***webroot/***: web root dir
+  - ***bin***: command entry file
+  - ***database-migration***: database migration
+  - ***res/cache***: cache dir
+  - ***res/logs***: logs dir
+  - ***res/styles***: SCSS files dir
+  - ***res/template***: twig template files dir
+  - ***webroot***: web root dir
 
 # Implementation
 In order to handle lots of requests without bogging down or keeping website users waiting. From ***coding perspective***, We need to remove the time consuming parts: 
