@@ -1,5 +1,10 @@
 # Introduction
-This vote page is based on PHP Symfony2 Framework, uses Mysql as the database storage and redis as the cache server. It is able to handle  numerous of requests smoothly.  Demo: https://morrison.mmyyabb.com
+This is to demonstrate both frontend and backend development skills. It's a simple voting page. A user votes by submitting with a valid email address and sticker. An email will be sent to the voter. 
+
+The code is based on PHP Symfony2 Framework, using Mysql as the database storage and Redis as the cache server. It's browsers compatible and mobile compatible. It is able to handle numerous of requests smoothly.
+
+Demo: https://morrison.mmyyabb.com
+
 # Directory Structure
   - ***app/config***: config files dir.
   - ***app/resources***: services, routings or other php related resources 
@@ -104,7 +109,7 @@ $  MORRISON_ENV=morrison_prod php bin/console.php cron:send-email
 */
 ```
 
-Run unit test:
+### Unit test:
 ```sh
 $  phpunit -c phpunit.xml.dist
 ```
